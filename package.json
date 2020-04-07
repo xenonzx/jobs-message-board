@@ -1,0 +1,11 @@
+{
+  "name": "jobs-message-board",
+  "version": "1.0.0",
+  "description": "application for clients to post thier jobs on and users can apply to them",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
