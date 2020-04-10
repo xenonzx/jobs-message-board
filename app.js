@@ -31,12 +31,19 @@ app.put('/message/:ID', function(req, res){
       .update(new Date().toDateString() + id)
       .digest('hex'));
 });
+app.get('/jobs', function(req, res){
+    jobsCollection.find().toArray().then(results => {
+        console.log(results)
+        res.send(results);
+      });
+})
 app.post('/jobs', function(req, res){
     console.log(req.body);
     let job = {};
     // TODO server side validation
     if (!db||!jobsCollection){
-        return console("error in creating  job in jobs collection");
+        res.status(500).send();
+        return console.log("error in creating  job in jobs collection");
     }
     job.responsibility = req.body.responsibility
     job.position = req.body.position
