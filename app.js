@@ -8,6 +8,12 @@ const mongoUrl = 'mongodb://127.0.0.1:27017'
 const dbName = 'jobs-board-db'
 let db;
 let jobsCollection;
+
+app.set('view engine', 'ejs');
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+// parse application/json
+app.use(bodyParser.json());
 MongoClient.connect(mongoUrl, (err, client) => {
     if (err) return console.log(err);
     console.log(`Connected MongoDB: ${mongoUrl}`);
@@ -17,10 +23,7 @@ MongoClient.connect(mongoUrl, (err, client) => {
 
   })
 
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
-// parse application/json
-app.use(bodyParser.json());
+
 app.get('/', function(req, res){
     res.send("helloworld");
 });
@@ -34,7 +37,8 @@ app.put('/message/:ID', function(req, res){
 app.get('/jobs', function(req, res){
     jobsCollection.find().toArray().then(results => {
         console.log(results)
-        res.send(results);
+        res.render('index.ejs', { jobs: results })
+        //res.send(results);
       });
 })
 app.post('/jobs', function(req, res){
