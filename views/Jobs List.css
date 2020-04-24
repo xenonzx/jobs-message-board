@@ -1,0 +1,43 @@
+body
+{
+    font-family: "Lato";font-size: 22px ;
+    background: #20639b;
+}
+fieldset
+{
+    background-image: url(earth.jpg);
+    height: 400px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+h1
+{
+    color: white;
+    text-align: center;
+    font-size: 45px;
+    margin-top: 80px;
+}
+li
+{
+    border: solid 5px gold;
+    border-radius: 0px;
+    font-size: 25px;
+    padding: 22px 33px 22px 33px;
+    margin-bottom: 7px;
+    margin-right: 40px;
+    color: black;
+    margin-left: 0px;
+    list-style-type: none;
+}
+img
+{
+    border: 3px;
+    border-radius: 8px;
+    margin-bottom: 6px;
+}
+button
+{
+    border-radius: 9px;
+    font-size: 22px;
+    margin-top: 5px;
+}
