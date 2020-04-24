@@ -14,7 +14,7 @@ let jobsCollection;
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+app.use(express.static('public'));
 MongoClient.connect(mongoUrl, (err, client) => {
     if (err) return console.log(err);
     console.log(`Connected MongoDB: ${mongoUrl}`);
@@ -69,8 +69,8 @@ app.post('/jobs', function(req, res){
     
     
 });
-
-app.listen(process.env.PORT || 3000, 
-    () => console.log("Server is running..."));
+let port = process.env.PORT || 3000
+app.listen(port, 
+    () => console.log(`Server is running on port ${port}`));
     
     
