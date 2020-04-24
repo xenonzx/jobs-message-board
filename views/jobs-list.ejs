@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="Jobs List.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato-light.ttf">
+    <meta charset="UTF 8">
+    <title>Jobs Messaging Board's Jobs Page</title>
+</head>
+<body>
+    <fieldset>
+        <h1>Jobs Messaging Board</h1>
+    </fieldset>
+
+        <% for(var i = 0; i < jobs.length; i++) {%>
+            <li class="job-li">
+                    <li>
+                        <img src="face book.jpg" width="57" height="60">
+                        <br>Company name: <%= jobs[i].companyname %> <br>
+                        Position: <%= jobs[i].position %> <br>
+                        Responsibility:<br>
+                        Requirements:<br>
+                        <button><a href=""></a>Apply
+                        </button></li>
+                
+                <input type="submit" value="apply"/>
+                <!--<span><%= jobs[i].quote %></span>-->
+            </li>
+        <% } %>
+    <ul>
+        
+        
+        
+        
+    </ul> 
+</body>
+</html>

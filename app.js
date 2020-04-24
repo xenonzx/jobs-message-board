@@ -35,7 +35,7 @@ app.put('/message/:ID', function(req, res){
 app.get('/jobs', function(req, res){
     jobsCollection.find().toArray().then(results => {
         console.log(results)
-        res.render('index.ejs', { jobs: results })
+        res.render('jobs-list.ejs', { jobs: results })
         //res.send(results);
       });
 });
