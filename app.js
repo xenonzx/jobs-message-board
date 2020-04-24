@@ -58,6 +58,8 @@ app.post('/jobs', function(req, res){
     let responseMessage ;
     jobsCollection.insertOne(job)
     .then(result => {
+      //TODO: fix response to return only the job inserted not the whole collection
+      
       console.log(result)
       res.json(result);
     })
