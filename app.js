@@ -23,7 +23,7 @@ MongoClient.connect(mongoUrl, (err, client) => {
   })
 
 app.get('/', function(req, res){
-    res.send("helloworld");
+    res.redirect('/jobs')
 });
 
 app.put('/message/:ID', function(req, res){
