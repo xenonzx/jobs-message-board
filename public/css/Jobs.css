@@ -58,3 +58,7 @@ input
     font-size: large
 }    
 .w3-round-large{border-radius: 8px;}
+img
+{
+    border-radius: 35px;
+}
