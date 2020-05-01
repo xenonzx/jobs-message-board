@@ -3,6 +3,11 @@ body
     font-family: "Lato";font-size: 22px;
     background: lightgray;
 }
+fieldset
+{
+    margin-bottom: 10px;
+    min-width: 0px;
+}
 .A
 {   
     background: #173F5F;
@@ -14,11 +19,11 @@ body
     background-color: #20639B;
 }
 
-.C
+.G
 {
     background-color: #3CAEA3;  
 }
-.D
+.L
 {
     background-color: #173F5F ;
     color: white;
@@ -34,23 +39,64 @@ input
     padding: 8px;
     box-sizing: border-box;
 }
-input:focus
+.C
 {
-    border-color:darkgrey;
-    box-shadow: 0 0 8px 0 darkgray
+    margin-bottom: 0px;
+    border-radius: 8px;
 }
-input
+.E
 {
-    color: #000;
-}
-.w3-round-large{border-radius:8px}
-textarea
-{
+    margin-bottom: 0px;
+    border-radius: 8px;
     border: 2px;
     border-color: darkgrey ;
     box-shadow: 0 0 8px 0 darkgrey;
     width: 450px;
     font-size: large;
+}
+.F
+{
+    margin-bottom: 0px;
+    border-radius: 8px;
+    border: 2px;
+    border-color: darkgrey ;
+    box-shadow: 0 0 8px 0 darkgrey;
+    width: 450px;
+    font-size: large;
+}
+.H
+{
+    margin-bottom: 0px;
+    border-radius: 8px;
+}
+.I
+{
+    margin-bottom: 0px;
+    border-radius: 8px;
+}
+.J
+{
+    margin-bottom: 0px;
+    border-radius: 8px;
+}
+.K
+{
+    margin-bottom: 0px;
+    border-radius: 8px;
+    width: 450px;
+    font-size: large;
+    border: 2px solid darkgray;
+}
+.M
+{
+    margin-bottom: 0px;
+    border-radius: 8px;
+}
+input
+{
+    color: #000;
+    margin-bottom: 19px;
+    margin-top: 3px;
 }
 .w3-round-large{border-radius: 8px}
 input 
@@ -62,4 +108,36 @@ input
 img
 {
     border-radius: 35px;
+}
+.A
+{
+    margin-bottom: 10px;
+    min-width: 0px;
+    border-radius: 50px 50px 0px 0px;
+}
+fieldset
+{
+    margin-bottom: 10px;
+    min-width: 0px;
+}
+.D
+{
+    border-radius: 0px 0px 50px 50px;
+}
+.p
+{
+    margin-top: 0px;
+}
+h3
+{
+    margin-top: 3px;
+}
+.wowo
+{
+    margin-bottom: 8px;
+    margin-top:2px;
+}
+.yy
+{
+    margin-top: 0px;
 }
