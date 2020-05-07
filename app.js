@@ -3,10 +3,11 @@
 const express = require('express');
 const passport =  require('passport')
 const LocalStrategy = require('passport-local').Strategy;
-var session = require("express-session"),
+var session = require("express-session");
 const crypto = require('crypto');
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
+var ObjectId = require('mongodb').ObjectID;
 const app =  express();
 
 require('dotenv').config();
@@ -22,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static('public'));
 app.use(require('cookie-parser')());
-app.use(require('express-session')({
+app.use(session({
   secret: 'keyboard cat',
   resave: true,
   saveUninitialized: true
@@ -41,10 +42,23 @@ passport.use(new LocalStrategy({
       if (!user) { return done(null, false); }
       //TODO use bcrypt and make verification  a method in class objec
       if (user.password!=password) { return done(null, false); }
+      console.log(user)
       return done(null, user);
     });
   }
 ));
+
+passport.serializeUser(function(user, done) {
+  done(null, user._id);
+});
+
+passport.deserializeUser(function(id, done) {
+  usersCollection.findOne({_id: ObjectId(id)}, function (err, user) {
+    console.log('deserializeUser user')
+    console.log(user)
+    return done(null, user);
+  });
+});
 
 MongoClient.connect(mongoUrl, (err, client) => {
     if (err) return console.log(err);
@@ -104,8 +118,7 @@ app.get('/login', (req,res) => {
   res.render("login.ejs");
 });
 
-// TODO remove session variable = false
-app.post('/login', passport.authenticate('local', { failureRedirect: '/login' ,session: false}),(req,res) => {
+app.post('/login', passport.authenticate('local', { failureRedirect: '/login' }),(req,res) => {
   res.redirect('/admin');
 });
 
@@ -114,7 +127,7 @@ app.get('/register', (req,res) => {
 });
 
 app.post('/register', (req,res) => {
-  // make a model
+  // TODO make a model
   let user = {}
   user.email = req.body.email;
   user.name =  req.body.name;
@@ -129,8 +142,15 @@ app.post('/register', (req,res) => {
     })
     
 });
-q
-app.get('/admin',(req,res) => {
+
+function checkAuthenticated(req,res,next){
+  if (!req.isAuthenticated()){
+    return res.redirect('/login')
+  }
+  next();
+}
+
+app.get('/admin',checkAuthenticated,(req,res) => {
   res.send("welcome to admin");
 });
 
