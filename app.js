@@ -1,10 +1,13 @@
+// TODO Add validation and sanitization for form input
+// TODO use ORM
 const express = require('express');
 const passport =  require('passport')
 const LocalStrategy = require('passport-local').Strategy;
-const app =  express();
+var session = require("express-session"),
 const crypto = require('crypto');
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
+const app =  express();
 
 require('dotenv').config();
 
@@ -31,24 +34,15 @@ app.use(passport.session());
 passport.use(new LocalStrategy({
   usernameField: 'email',
   passwordField: 'password',
-  
 },
   function(email, password, done) {
-    // usersCollection.findOne({ email: email }, function (err, user) {
-    //   if (err) { return done(err); }
-    //   if (!user) { return done(null, false); }
-    //   //TODO use bcrypt and make verification  a method in class objec
-    //   if (user.password!=password) { return done(null, false); }
-    //   return done(null, user);
-    // });
-    if (email =="a" && password== "a"){
-
-      let user = {}
-      user.email = "a";
-      user.name =  "a";
-      user.password = "a";
-      return done (null, user)
-    }
+    usersCollection.findOne({ email: email }, function (err, user) {
+      if (err) { return done(err); }
+      if (!user) { return done(null, false); }
+      //TODO use bcrypt and make verification  a method in class objec
+      if (user.password!=password) { return done(null, false); }
+      return done(null, user);
+    });
   }
 ));
 
@@ -104,8 +98,6 @@ app.post('/jobs', function(req, res){
     .catch(error => {console.error(error)
       res.status(500).send();
     })
-    
-    
 });
 
 app.get('/login', (req,res) => {
@@ -130,13 +122,18 @@ app.post('/register', (req,res) => {
   
   usersCollection.insertOne(user)
     .then(result => {
-      res.redirect('/');
+      res.redirect('/login');
     })
     .catch(error => {console.error(error)
       res.status(500).send();
     })
     
 });
+q
+app.get('/admin',(req,res) => {
+  res.send("welcome to admin");
+});
+
 let port = process.env.PORT || 3000
 app.listen(port, 
     () => console.log(`Server is running on port ${port}`));
