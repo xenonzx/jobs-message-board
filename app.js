@@ -3,62 +3,23 @@
 const express = require('express');
 const passport =  require('passport')
 const LocalStrategy = require('passport-local').Strategy;
-var session = require("express-session");
+const session = require("express-session");
 const crypto = require('crypto');
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
-var ObjectId = require('mongodb').ObjectID;
+const ObjectId = require('mongodb').ObjectID;
 const app =  express();
+const env = require('dotenv');
 
-require('dotenv').config();
-
+env.config();
 const mongoUrl =  process.env.MONGO_URL;
 let db;
 const dbName = 'jobs-board-db'
 let jobsCollection;
 let usersCollection;
 
-app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(express.static('public'));
-app.use(require('cookie-parser')());
-app.use(session({
-  secret: 'keyboard cat',
-  resave: true,
-  saveUninitialized: true
-}));
-app.use(passport.initialize());
-app.use(passport.session());
-
-
-passport.use(new LocalStrategy({
-  usernameField: 'email',
-  passwordField: 'password',
-},
-  function(email, password, done) {
-    usersCollection.findOne({ email: email }, function (err, user) {
-      if (err) { return done(err); }
-      if (!user) { return done(null, false); }
-      //TODO use bcrypt and make verification  a method in class objec
-      if (user.password!=password) { return done(null, false); }
-      console.log(user)
-      return done(null, user);
-    });
-  }
-));
-
-passport.serializeUser(function(user, done) {
-  done(null, user._id);
-});
-
-passport.deserializeUser(function(id, done) {
-  usersCollection.findOne({_id: ObjectId(id)}, function (err, user) {
-    console.log('deserializeUser user')
-    console.log(user)
-    return done(null, user);
-  });
-});
+configExpress();
+configPassport();
 
 MongoClient.connect(mongoUrl, (err, client) => {
     if (err) return console.log(err);
@@ -180,5 +141,52 @@ app.get('/new-job-posts', checkAuthenticated,(req,res) => {
 let port = process.env.PORT || 3000
 app.listen(port, 
     () => console.log(`Server is running on port ${port}`));
+
+function configExpress(){
+  app.set('view engine', 'ejs');
+  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(bodyParser.json());
+  app.use(express.static('public'));
+  app.use(require('cookie-parser')());
+  app.use(session({
+    secret: 'keyboard cat',
+    resave: true,
+    saveUninitialized: true
+  }));
+  app.use(passport.initialize());
+  app.use(passport.session());
+  
+}
+
+function configPassport(){
+  passport.use(new LocalStrategy({
+    usernameField: 'email',
+    passwordField: 'password',
+  },
+    function(email, password, done) {
+      usersCollection.findOne({ email: email }, function (err, user) {
+        if (err) { return done(err); }
+        if (!user) { return done(null, false); }
+        //TODO use bcrypt and make verification  a method in class objec
+        if (user.password!=password) { return done(null, false); }
+        console.log(user)
+        return done(null, user);
+      });
+    }
+  ));
+  
+  passport.serializeUser(function(user, done) {
+    done(null, user._id);
+  });
+  
+  passport.deserializeUser(function(id, done) {
+    usersCollection.findOne({_id: ObjectId(id)}, function (err, user) {
+      console.log('deserializeUser user')
+      console.log(user)
+      return done(null, user);
+    });
+  });
+  
+}
     
     
