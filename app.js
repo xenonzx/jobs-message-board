@@ -130,7 +130,8 @@ function checkAuthenticated(req, res, next) {
 }
 
 app.get('/admin', checkAuthenticated, (req, res) => {
-  res.render('admin');
+  console.log(req.user);
+  res.render('admin',{email:req.user.email, name : req.user.name});
 });
 
 app.get('/new-job-posts', checkAuthenticated, (req, res) => {
