@@ -22,28 +22,28 @@ configExpress();
 configPassport();
 
 MongoClient.connect(mongoUrl, (err, client) => {
-    if (err) return console.log(err);
-    console.log(`Connected MongoDB: ${mongoUrl}`);
-    db = client.db(dbName);
-    jobsCollection = db.collection('jobs');
-    usersCollection = db.collection('users');
-  })
+  if (err) return console.log(err);
+  console.log(`Connected MongoDB: ${mongoUrl}`);
+  db = client.db(dbName);
+  jobsCollection = db.collection('jobs');
+  usersCollection = db.collection('users');
+});
 
 app.get('/', function(req, res){
-    res.redirect('/jobs')
+  res.redirect('/jobs')
 });
 
 app.put('/message/:ID', function(req, res){
-    const id = req.params.ID;
-    res.send(crypto.createHash('sha1')
-      .update(new Date().toDateString() + id)
-      .digest('hex'));
+  const id = req.params.ID;
+  res.send(crypto.createHash('sha1')
+    .update(new Date().toDateString() + id)
+    .digest('hex'));
 });
 
 app.get('/jobs', function(req, res){
-    jobsCollection.find({state:'approved'}).toArray().then(results => {
-        console.log(results)
-        res.render('jobs-list.ejs', { jobs: results })
+  jobsCollection.find({state:'approved'}).toArray().then(results => {
+    console.log(results)
+    res.render('jobs-list.ejs', { jobs: results })
       });
 });
 
