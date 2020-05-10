@@ -3,12 +3,12 @@
 <ul class="quotes">
     <!-- Loop through jobs -->
     <% for(var i = 0; i < jobs.length; i++) {%>
-        <li class="job-li">
+    <li class="job-li">
 
-            <span><%= jobs[i].companyname %></span>
-            <span><%= jobs[i].position %></span>
-            <input type="submit" value="apply"/>
-            <!--<span><%= jobs[i].quote %></span>-->
-        </li>
+        <span><%= jobs[i].companyname %></span>
+        <span><%= jobs[i].position %></span>
+        <input type="submit" value="apply" />
+        <!--<span><%= jobs[i].quote %></span>-->
+    </li>
     <% } %>
 </ul>
