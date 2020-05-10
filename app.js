@@ -78,11 +78,11 @@ app.put('/message/:ID', function(req, res){
       .update(new Date().toDateString() + id)
       .digest('hex'));
 });
+
 app.get('/jobs', function(req, res){
-    jobsCollection.find().toArray().then(results => {
+    jobsCollection.find({state:'approved'}).toArray().then(results => {
         console.log(results)
         res.render('jobs-list.ejs', { jobs: results })
-        //res.send(results);
       });
 });
 
@@ -101,6 +101,7 @@ app.post('/jobs', function(req, res){
     job.website = req.body.website
     job.email = req.body.email
     job.about = req.body.about
+    job.state = 'new'; // todo move constants file
     let responseMessage ;
     jobsCollection.insertOne(job)
     .then(result => {
@@ -114,6 +115,22 @@ app.post('/jobs', function(req, res){
     })
 });
 
+app.post('/jobs/:id/approve', function(req, res){
+  console.log("approve")
+  const id = req.params.id;
+  console.log(id)
+  // TODO record who approved 
+  let query = { _id : ObjectId(id) };
+  let newVal = {$set : {state:'approved'}}
+  jobsCollection.updateOne(query,newVal ,function(err, result){
+    if (err) {
+      console.error(err);
+      res.status(500).send();
+    }
+    res.redirect('/new-job-posts');
+  });
+});
+
 app.get('/login', (req,res) => {
   res.render("login.ejs");
 });
@@ -122,11 +139,11 @@ app.post('/login', passport.authenticate('local', { failureRedirect: '/login' })
   res.redirect('/admin');
 });
 
-app.get('/register', (req,res) => {
+app.get('/register',checkAuthenticated, (req,res) => {
   res.render("register.ejs");
 });
 
-app.post('/register', (req,res) => {
+app.post('/register', checkAuthenticated,(req,res) => {
   // TODO make a model
   let user = {}
   user.email = req.body.email;
@@ -135,12 +152,11 @@ app.post('/register', (req,res) => {
   
   usersCollection.insertOne(user)
     .then(result => {
-      res.redirect('/login');
+      res.redirect('/admin');
     })
     .catch(error => {console.error(error)
       res.status(500).send();
     })
-    
 });
 
 function checkAuthenticated(req,res,next){
@@ -150,9 +166,16 @@ function checkAuthenticated(req,res,next){
   next();
 }
 
-app.get('/admin',checkAuthenticated,(req,res) => {
-  res.send("welcome to admin");
+app.get('/admin', checkAuthenticated, (req,res) => {
+  res.render('admin');
 });
+
+app.get('/new-job-posts', checkAuthenticated,(req,res) => {
+  jobsCollection.find({$or: [{state: null },{state: 'new' }]}).toArray().then(results => {
+    res.render('new-job-posts.ejs' , { jobs: results });
+  });
+});
+
 
 let port = process.env.PORT || 3000
 app.listen(port, 

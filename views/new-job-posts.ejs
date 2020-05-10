@@ -1,0 +1,28 @@
+<html>
+    <head>
+        
+    </head>
+<body>
+<h1>New posts</h1>
+
+<ul>
+    <% for(var i = 0; i < jobs.length; i++) {%>
+        <li class="job-li">
+
+                <li>    
+                    <form action = "<%= `/jobs/${jobs[i]._id}/approve` %>" method="POST">
+                    <img src="face book.jpg" width="57" height="60">
+                    <br>Company name: <%= jobs[i].companyname %> <br>
+                    Position: <%= jobs[i].position %> <br>
+                    Responsibility:<br>
+                    Requirements:<br>
+                    <input type="submit" name="approve" value="Approve" />
+                    </form>
+                </li>
+            
+            <!--<span><%= jobs[i].quote %></span>-->
+        </li>
+    <% } %>        
+</ul> 
+</body>
+</html>
