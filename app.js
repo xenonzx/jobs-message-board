@@ -138,6 +138,10 @@ app.get('/new-job-posts', checkAuthenticated, (req, res) => {
     res.render('new-job-posts.ejs', { jobs: results });
   });
 });
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/login');
+});
 
 
 let port = process.env.PORT || 3000
