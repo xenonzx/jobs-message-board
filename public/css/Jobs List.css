@@ -15,3 +15,6 @@
       color: lightslategray;
       letter-spacing: 0.1em;
   }
+  .carousel-inner h3{
+    color: whitesmoke;
+}
