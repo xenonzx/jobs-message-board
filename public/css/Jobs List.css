@@ -1,10 +1,18 @@
 .logoresize {
     height: auto;
     width: auto;
-    max-height: 30px;
+    max-height: 25px;
     max-width: 250px;
+    padding: 0;
 }
-
+footer .logoresize {
+    height: auto;
+    width: auto;
+    max-height: 20px;
+    padding-right: 0.4rem;
+    position: relative;
+    bottom: 2px;
+}
 /* === Carousel === */
 .carousel-inner img {
     width: 100%;
