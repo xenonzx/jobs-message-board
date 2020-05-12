@@ -1,3 +1,11 @@
+.logoresize {
+    height: auto;
+    width: auto;
+    max-height: 50px;
+    max-width: 250px;
+}
+
+
 body
 {
     font-family: "Lato";font-size: 22px ;
@@ -17,18 +25,7 @@ h1
     font-size: 45px;
     margin-top: 80px;
 }
-li
-{
-    border: solid 5px gold;
-    border-radius: 0px;
-    font-size: 25px;
-    padding: 22px 33px 22px 33px;
-    margin-bottom: 7px;
-    margin-right: 40px;
-    color: black;
-    margin-left: 0px;
-    list-style-type: none;
-}
+
 img
 {
     border: 3px;
