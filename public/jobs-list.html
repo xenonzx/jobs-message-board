@@ -1,67 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="css/Jobs List.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Lato-light.ttf"
-    />
     <meta charset="UTF 8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Jobs Messaging Board's Jobs Page</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JMB Main</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/Jobs List.css" />
+    
+
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/navLink.js"></script>
+    <script src="js/footerLink.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
       integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
       crossorigin="anonymous"
     ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-
+    <script src="js/bootstrap.min.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
   </head>
 
   <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
-      <div class="container-fluid">
-        <a href="#" class="navbar-brand">
-          <img src="/public/images/logo.png" alt="logo" class="logoresize" />
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarResponsive"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a href="#" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">Login / Register</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">Contact Us</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">About Us</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <nav class="navbar navbar-expand-md navbar-light sticky-top" id="navBar">
+      
     </nav>
     <!-- Image slider - Carousel -->
     <div class="carousel" id="slides" data-ride="carousel">
@@ -90,7 +54,7 @@
     </div>
     <!-- Social Media -->
 
-    <div class="container-fluid padding">
+    <div class="container-fluid padding" id="socialmedia">
       <div class="row text-center padding">
         <div class="col-12">
           <h2>Connect</h2>
@@ -107,44 +71,8 @@
 
     <!-- Footer -->
 
-    <footer>
-      <div class="container-fluid padding">
-        <div class="row text-center">
-          <div class="col-sm-6 col-md-4">
-            <hr class="light" />
-            <h5>
-              <img src="images/logo.png" alt="logo" class="logoresize" /> JMB
-            </h5>
-            <hr class="light" />
-            <p>123-444-555</p>
-            <p>email@mymail.com</p>
-            <p>100 stree name</p>
-            <p>Alexandria - Egypt</p>
-          </div>
-          <div class="col-sm-6 col-md-4">
-            <hr class="light" />
-            <h5>Our Hours</h5>
-            <hr class="light" />
-            <p>Monday 9am-5pm</p>
-            <p>Tuesday 9am-5pm</p>
-            <p>Friday Closed</p>
-            <p>Saturday 10am-4pm</p>
-          </div>
-          <div class="col-md-4">
-            <hr class="light" />
-            <h5>Our Hours Tany</h5>
-            <hr class="light" />
-            <p>Monday 9am-5pm</p>
-            <p>Tuesday 9am-5pm</p>
-            <p>Friday Closed</p>
-            <p>Saturday 10am-4pm</p>
-          </div>
-          <div class="col-12">
-            <hr class="light-100" />
-            <h5>Copyright &copy;2020</h5>
-          </div>
-        </div>
-      </div>
+    <footer id="footer">
+      
     </footer>
   </body>
 </html>

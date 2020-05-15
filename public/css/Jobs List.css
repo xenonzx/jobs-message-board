@@ -1,18 +1,3 @@
-.logoresize {
-    height: auto;
-    width: auto;
-    max-height: 25px;
-    max-width: 250px;
-    padding: 0;
-}
-footer .logoresize {
-    height: auto;
-    width: auto;
-    max-height: 20px;
-    padding-right: 0.4rem;
-    position: relative;
-    bottom: 2px;
-}
 /* === Carousel === */
 .carousel-inner img {
     width: 100%;
@@ -25,6 +10,22 @@ footer .logoresize {
   }
   .carousel-inner h3{
     color: whitesmoke;
+}
+
+
+/* === Footer === */
+
+footer .logoresize {
+    height: auto;
+    width: auto;
+    max-height: 20px;
+    padding-right: 0.4rem;
+    position: relative;
+    bottom: 2px;
+}
+
+footer p {
+    /* text-align: left; */
 }
 /*
 Extra small (xs) devices (portrait phones, less than 576px)
