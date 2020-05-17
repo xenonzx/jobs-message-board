@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .accordion {
+        background: rgb(140, 189, 207);
+        color: #ffffff;
+        cursor: pointer;
+        padding: 0.25em 0.5em;
+        width: 100%;
+        border: 1px solid gray;
+        border-radius: 5px;
+        font-size: 1.5em;
+        transition: 0.3s;
+        margin: 0;
+      }
+      .accordion:hover {
+        background: lightblue;
+      }
+      .panel {
+        padding: 0 0.5em;
+        display: none;
+        overflow: hidden;
+      }
+      .panel p {
+        font-size: 1.1em;
+      }
+    </style>
+    
+  </head>
+  <body>
+    <main>
+      <div class="accordion">text text</div>
+      <div class="panel">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste magnam
+          fugit, debitis consectetur expedita soluta quibusdam temporibus
+          repudiandae sint sapiente quasi accusamus blanditiis accusantium
+          minus. Eaque hic, esse accusantium tempore consectetur deleniti!
+          Deserunt exercitationem, nobis explicabo, possimus expedita impedit
+          consequuntur unde laudantium tenetur maxime aliquid repudiandae
+          quibusdam, veritatis labore quae.
+        </p>
+      </div>
+    </main>
+    <script type="text/javascript">
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+              panel.style.display = "none";
+            } else {
+              panel.style.display = "block";
+            }
+          });
+        }
+      </script>
+  </body>
+</html>

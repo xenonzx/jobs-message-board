@@ -1,7 +1,7 @@
 /* === Carousel === */
 .carousel-inner img {
+    
     width: 100%;
-    height: 100%;
   }
   .carousel-inner h1{
       font-weight: 500;
@@ -12,6 +12,43 @@
     color: whitesmoke;
 }
 
+
+/* Main posts */
+
+* {
+    box-sizing: border-box;
+  }
+  .accordion {
+    background: rgba(115, 137, 145, 0.651);
+    color: #ffffffbb;
+    cursor: pointer;
+    padding: 0.25em 0.25em;
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: 1.3em;
+    transition: 0.3s;
+    margin: 0;
+  }
+  .accordion:hover {
+    background: rgb(110, 151, 165);
+  }
+  ul.postHead{
+      list-style: none;
+      padding-left: 0.5em;
+  }
+  /* Additional info */
+  .panel {
+    padding: 0 0.5em;
+    display: none;
+    overflow: hidden;
+    background: #eeeeee;
+    
+  }
+  .panel p {
+    font-size: 1.1em;
+    padding: 1em;
+  }
 
 /* === Footer === */
 
@@ -24,9 +61,9 @@ footer .logoresize {
     bottom: 2px;
 }
 
-footer p {
-    /* text-align: left; */
-}
+/* footer p {
+     text-align: left; 
+} */
 /*
 Extra small (xs) devices (portrait phones, less than 576px)
 No media query since this is the default in Bootstrap
