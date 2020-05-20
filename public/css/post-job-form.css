@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&display=swap");
+body {
+  font-family: "Oswald", sans-serif;
+  font-size: 16px;
+}
+/* === form === */
+form {
+  background-color: whitesmoke;
+  margin: 1rem auto;
+  max-width: 70%;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+/* === Texts === */
+form h3 {
+  text-align: center;
+  padding-bottom: 2em;
+  font-size: 2em;
+}
+
+/* === Labels === */
+form label {
+  text-align: right;
+  font-size: 1.5em;
+}
+
+/* === Input fields === */
+input,select {
+  font-size: 1.5em;
+}
+textarea {
+  font-size: 1.4em;
+}
+
+/* === Buttons === */
+.submit {
+  width: 40%;
+  padding: 0.5em;
+  border-radius: 5px;
+  border: 0;
+  color: #eeeeee;
+  background: rgba(0, 60, 255, 0.795);
+}
+.centerBtn {
+  text-align: center;
+}
+/* Screen size styles */
+
+@media (max-width: 576px) {
+  form label {
+    text-align: left;
+  }
+  form {
+    width: 90%;
+  }
+}
+@media (max-width: 768px) {
+  form label {
+    text-align: left;
+  }
+  form {
+    max-width: 90%;
+  }
+}
+@media  (max-width: 992px) {
+    form label {
+        text-align: left;
+      }
+      form {
+        max-width: 80%;
+      }
+}
+/*
+Extra small (xs) devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap
+
+Small (sm) devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+Medium (md) devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+Large (lg) devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+Extra (xl) large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+*/

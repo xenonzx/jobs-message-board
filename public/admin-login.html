@@ -1,14 +1,31 @@
-<h1>login</h1>
-<form action="/login" method="POST">
-    <div>
-        <label for="email">email:</label>
-        <input type="text" id="email" name="email" required>
-    </div>
-    <div>
-        <label for="password">password:</label>
-        <input type="text" id="password" name="password" required>
-    </div>
-    <button type="submit">login</button>
-</form>
-
+<!DOCTYPE html>
+<html>
+    
+        <head>
+            <link rel="stylesheet" href="css/admin-login.css">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato-light.ttf">
+            <meta charset="UFT-8">
+            <title>Jobs Messaging Board's Log in Page</title>
+        </head>
+        <body>
+            <fieldset class="Container-of-The-Header">
+                <img src="images/man.jpg" height="88" width="91">
+                <br>
+                <h1>Admin Log in</h1>
+                <form action="/login" method="POST">
+                <div>
+                    <h3 for="email" class="margin">Email</h3>
+                    <input type="email" placeholder="Enter Your Email Address" class="Email-input" id="email" name="email" required>
+                </div>
+                <div>
+                    <h3>Password</h3>
+                    <input type="password" placeholder="Enter Your Pasword" class="Password-input" id="password" name="password" required>
+                </div>    
+                <br>
+                <br>
+                <a href=""><input type="submit" value="Log in" class="submit">
+                </form>
+            </fieldset>
+        </body>
+    
 </html>
