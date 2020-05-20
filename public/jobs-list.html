@@ -2,17 +2,17 @@
 <html>
   <head>
     <meta charset="UTF 8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JMB Main</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/Jobs List.css" />
-    
+    <link rel="stylesheet" href="css/body.css" />
 
-    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/navLink.js"></script>
     <script src="js/footerLink.js"></script>
+    <script src="js/jobs-list.js" defer></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
       integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -24,11 +24,12 @@
 
   <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-md navbar-light sticky-top" id="navBar">
-      
-    </nav>
+    <nav
+      class="navbar navbar-expand-md navbar-light sticky-top"
+      id="navBar"
+    ></nav>
     <!-- Image slider - Carousel -->
-    <div class="carousel" id="slides" data-ride="carousel">
+    <!-- <div class="carousel" id="slides" data-ride="carousel">
       <ul class="carousel-indicators">
         <li data-target="#slides" data-slide-to="0" class="active"></li>
         <li data-target="#slides" data-slide-to="1"></li>
@@ -40,7 +41,12 @@
           <div class="carousel-caption">
             <h1 class="display-2">JMB</h1>
             <h3>Providing Jobs Since 2020</h3>
-            <button class="btn btn-outline-dark btn-lg">View Board</button>
+            <button
+              class="btn btn-outline-dark btn-lg"
+              onclick="window.location.href='#post'"
+            >
+              View Board
+            </button>
             <button class="btn btn-primary btn-lg">Register Now!</button>
           </div>
         </div>
@@ -51,7 +57,31 @@
           <img src="images/carousel-3.jpg" />
         </div>
       </div>
-    </div>
+    </div> -->
+
+    <!-- Job posts -->
+
+    <main>
+      <div class="accordion">
+        <ul class="postHead">
+          <li>Position</li>
+          <li>Experties</li>
+          <li>Salary</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste magnam
+          fugit, debitis consectetur expedita soluta quibusdam temporibus
+          repudiandae sint sapiente quasi accusamus blanditiis accusantium
+          minus. Eaque hic, esse accusantium tempore consectetur deleniti!
+          Deserunt exercitationem, nobis explicabo, possimus expedita impedit
+          consequuntur unde laudantium tenetur maxime aliquid repudiandae
+          quibusdam, veritatis labore quae.
+        </p>
+      </div>
+    </main>
+
     <!-- Social Media -->
 
     <div class="container-fluid padding" id="socialmedia">
@@ -71,8 +101,6 @@
 
     <!-- Footer -->
 
-    <footer id="footer">
-      
-    </footer>
+    <footer id="footer"></footer>
   </body>
 </html>
