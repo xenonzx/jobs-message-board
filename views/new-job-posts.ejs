@@ -1,31 +1,62 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-
+    <meta charset="UTF 8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin post page</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/new-job-posts ejs.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/navLink.js"></script>
+    <script src="js/footerLink.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 </head>
 
 <body>
-    <h1>New posts</h1>
+    <nav class="navbar navbar-expand-md navbar-light sticky-top" id="navBar">
+    </nav>
 
-    <ul>
-        <% for(var i = 0; i < jobs.length; i++) {%>
-        <li class="job-li">
+    <div class="wrapper">
+        <div class="sidebar">
+            <h2>Links</h2>
+            <ul>
+                <li><a href="new-job-posts" class="links">New Job Posts</a></li>
+                <li><a href="/register" class="links">Register a New User</a></li>
+                <li><a href="/logout" class="links">Log out</a></li>
+            </ul>
+        </div>
+        <div class="main-cont net">
+            <div class="header"></div>
+            <div class="info"></div>
+            <fieldset class="Logo">
+                <h1>Jobs Messaging Board</h1>
+            </fieldset>
+            <fieldset class="BBB">
+                <% for(var i = 0; i < jobs.length; i++) {%>
+                <fieldset class="AAA">
+                    <form action="<%= `/jobs/${jobs[i]._id}/approve` %>" method="POST">
+                        <img src="images/Says.jpg" width="125">
+                        <br>
+                        <h4>Company name: <%= jobs[i].companyname %> </h4>
+                        <h4>Position: <%= jobs[i].position %> </h4>
+                        <h4>Responsibility: <%= jobs[i].responsibility %></h4>
+                        <h4>Requirements: <%= jobs[i].requirements %> </h4>
+                        <h4>email: <%= jobs[i].email %> </h4>
+                        <h4>about: <%= jobs[i].about %> </h4>
+                        <input type="submit" name="approve" value="Approve" />
+                    </form>
 
-        <li>
-            <form action="<%= `/jobs/${jobs[i]._id}/approve` %>" method="POST">
-                <img src="face book.jpg" width="57" height="60">
-                <br>Company name: <%= jobs[i].companyname %> <br>
-                Position: <%= jobs[i].position %> <br>
-                Responsibility:<br>
-                Requirements:<br>
-                <input type="submit" name="approve" value="Approve" />
-            </form>
-        </li>
+                </fieldset>
+                <!--<span><%= jobs[i].quote %></span>-->
+                <% } %>
 
-        <!--<span><%= jobs[i].quote %></span>-->
-        </li>
-        <% } %>
-    </ul>
+            </fieldset>
 </body>
+<footer id="footer"></footer>
 
 </html>

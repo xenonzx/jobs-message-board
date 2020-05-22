@@ -43,46 +43,27 @@
                 <h1>Jobs Messaging Board</h1>
             </fieldset>
             <fieldset class="BBB">
+
+
+                <!-- <% for(var i = 0; i < jobs.length; i++) {%> -->
+
                 <fieldset class="AAA">
-                    <img src="images/Says.jpg" width="125"><button class="Approve">Approve</button><button class="DisApprove">DisApprove</button>
-                    <h4>Company Name: Jobs Messaging Board</h4>
-                    <h4>Postion: Html Css</h4>
+                    <form action="<%= `/jobs/${jobs[i]._id}/approve` %>" method="POST">
+                        <img src="images/Says.jpg" width="125">
+                        <br>
+                        <h4>Company name: name </h4>
+                        <h4>Position: Position </h4>
+                        <h4>Responsibility: Responsibility</h4>>
+                        <h4>Requirements: Requirements</h4>
+                        <input type="submit" name="approve" value="Approve" />
+                    </form>
+
                 </fieldset>
-                <fieldset class="AAA">
-                    <img src="images/Says.jpg" width="125"><button class="Approve">Approve</button><button class="DisApprove">DisApprove</button>
-                    <h4>Company Name: Jobs Messaging Board</h4>
-                    <h4>Postion: Html Css</h4>
-                </fieldset>
-                <fieldset class="AAA">
-                    <img src="images/Says.jpg" width="125"><button class="Approve">Approve</button><button class="DisApprove">DisApprove</button>
-                    <h4>Company Name: Jobs Messaging Board</h4>
-                    <h4>Postion: Html Css</h4>
-                </fieldset>
-                <fieldset class="AAA">
-                    <img src="images/Says.jpg" width="125"><button class="Approve">Approve</button><button class="DisApprove">DisApprove</button>
-                    <h4>Company Name: Jobs Messaging Board</h4>
-                    <h4>Postion: Html Css</h4>
-                </fieldset>
-                <fieldset class="AAA">
-                    <img src="images/Says.jpg" width="125"><button class="Approve">Approve</button><button class="DisApprove">DisApprove</button>
-                    <h4>Company Name: Jobs Messaging Board</h4>
-                    <h4>Postion: Html Css</h4>
-                </fieldset>
-                <fieldset class="AAA">
-                    <img src="images/Says.jpg" width="125"><button class="Approve">Approve</button><button class="DisApprove">DisApprove</button>
-                    <h4>Company Name: Jobs Messaging Board</h4>
-                    <h4>Postion: Html Css</h4>
-                </fieldset>
-                <fieldset class="AAA">
-                    <img src="images/Says.jpg" width="125"><button class="Approve">Approve</button><button class="DisApprove">DisApprove</button>
-                    <h4>Company Name: Jobs Messaging Board</h4>
-                    <h4>Postion: Html Css</h4>
-                </fieldset>
-                <fieldset class="AAA">
-                    <img src="images/Says.jpg" width="125"><button class="Approve">Approve</button><button class="DisApprove">DisApprove</button>
-                    <h4>Company Name: Jobs Messaging Board</h4>
-                    <h4>Postion: Html Css</h4>
-                </fieldset>
+
+
+                <!--<span><%= jobs[i].quote %></span>-->
+<!-- <% } %> -->
+
             </fieldset>
 </body>
 <footer id="footer"></footer>
